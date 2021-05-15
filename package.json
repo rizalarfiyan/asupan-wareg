@@ -1,7 +1,7 @@
 {
-  "name": "restaurant-apps",
+  "name": "wareg-dot-com",
   "version": "1.0.0",
-  "description": "",
+  "description": "First submission of expert frontend developer class in Dicoding academy",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
@@ -9,7 +9,7 @@
     "test": "karma start"
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "Rizal Arfiyan <rizal.arfiyan.23@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -27,6 +27,8 @@
     "karma-jasmine": "^3.3.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^7.1.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
