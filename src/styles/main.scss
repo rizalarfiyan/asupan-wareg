@@ -1,10 +1,6 @@
-$body-color: #f3f3f3;
+@import 'core';
 
-img {
-    display: block;
-}
-
-body,
-html {
-    background-color: $body-color;
-}
+@import 'root';
+@import 'reset';
+@import 'fonts';
+@import 'typography';

@@ -1,7 +1,7 @@
 {
-  "name": "wareg-dot-com",
+  "name": "asupan-wareg",
   "version": "1.0.0",
-  "description": "First submission of expert frontend developer class in Dicoding academy",
+  "description": "Submission of expert frontend developer class in Dicoding academy",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
