@@ -1,6 +1,6 @@
 .search {
   text-align: center;
-  padding: 60px 0 0;
+  padding: 90px 0 0;
   
   .heading {
     max-width: 360px;
@@ -22,12 +22,17 @@
     align-items: center;
   }
 
+  input,
+  button {
+    margin: 6px;
+  }
+
   input {
     border: none;
     padding: 12px 16px;
     font-size: $font-size-base;
     border-radius: 4px;
-    width: 360px;
+    width: 300px;
     max-width: 100%;
     box-shadow: 0 5px 30px var-color(--semi-dark, .14);
   }
@@ -39,7 +44,7 @@
   button {
     border: none;
     padding: 12px 16px;
-    margin-left: 10px;
+    margin-left: 6px;
     color: var-color(--white);
     background: var-color(--orange);
     border-radius: 4px;

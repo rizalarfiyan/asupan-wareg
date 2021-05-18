@@ -90,6 +90,13 @@
     background: var-color(--white);
     font-size: $font-size-base;
     font-weight: $font-weight-semi;
+
+    &::before {
+      content: '\f041';
+      font-family: 'FontAwesome';
+      display: inline-block;
+      margin-right: 6px;
+    }
   }
 
   .content {

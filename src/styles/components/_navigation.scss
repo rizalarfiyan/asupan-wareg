@@ -57,10 +57,14 @@
     display: none;
   }
 
+  i {
+    margin-right: 6px;
+  }
+
   a:not(.logo) {
     display: block;
     position: relative;
-    padding: 8px 12px;
+    padding: 10px 14px;
     margin: auto 5px;
     border-radius: 4px;
     transition: background .2s ease;
@@ -180,6 +184,14 @@
       &:nth-child(3) {
         top: 16px;
       }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .navigation {
+    h1 {
+      font-size: 1.5rem;
     }
   }
 }
