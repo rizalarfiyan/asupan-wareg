@@ -30,10 +30,17 @@
   .image {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    padding-bottom: percentage(2/3);
   }
 
   img {
     transition: all .3s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   .rating {

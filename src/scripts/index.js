@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/main.scss';
+import { restaurants as dataPost} from '../DATA.json';
 
 // Adaptive from https://codepen.io/hi-im-si/pen/DHoup
 let typewrite = function(el, text, time) {
@@ -47,3 +48,36 @@ window.onload = function() {
     }
   }
 };
+
+// Helpers
+const limiter = (long, text) => {
+  return !long || text.length <= long ? text : `${text.slice(0, long)} ...`
+}
+
+// Dom Manipulation JSON
+let elemContent = document.getElementById('content');
+dataPost.forEach((post) => {
+  let { name, description, pictureId, city, rating } = post
+  let node = document.createElement('div')
+  node.className = "card"
+  node.innerHTML = `<div class="image">
+    <a href="#" class="rating">
+      <span>${rating}</span>
+    </a>
+    <img class="cover" src="${pictureId}" alt="${name}">
+    <a href="#" class="location">${city}</a>
+  </div>
+  <div class="content">
+    <a href="#">
+      <h2 class="h4">${name}</h2>
+    </a>
+    <p>${limiter(120, description)}</p>
+  </div>`
+  elemContent.append(node)
+})
+
+// Footer
+let date = new Date();
+let year = date.getFullYear();
+let elmCopy = document.getElementById('year');
+elmCopy.innerHTML = year === 2021 ? year : `2021 - ${year}`;
