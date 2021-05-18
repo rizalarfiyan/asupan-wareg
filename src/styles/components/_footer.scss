@@ -1,0 +1,21 @@
+footer {
+  padding: 20px 10px;
+  text-align: center;
+  font-weight: $font-weight-medium;
+
+  .container > span {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 6px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .heart {
+    color: #e31b23;
+  }
+}
