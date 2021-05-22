@@ -57,9 +57,9 @@ const limiter = (long, text) => {
 // Dom Manipulation JSON
 let elemContent = document.getElementById('content');
 dataPost.forEach((post) => {
-  let { name, description, pictureId, city, rating } = post
-  let node = document.createElement('div')
-  node.className = "card"
+  let { name, description, pictureId, city, rating } = post;
+  let node = document.createElement('div');
+  node.className = 'card';
   node.innerHTML = `<div class="image">
     <a href="#" class="rating">
       <span>${rating}</span>
@@ -73,8 +73,29 @@ dataPost.forEach((post) => {
     </a>
     <p>${limiter(120, description)}</p>
   </div>`
-  elemContent.append(node)
+  elemContent.append(node);
+});
+
+// Navigation Drawer
+let myNav = document.querySelector('#navigation');
+let clickNav = myNav.querySelectorAll('button.hamburger, .overlay');
+
+clickNav.forEach(item => {
+  item.addEventListener('click', e => {
+    myNav.classList.toggle('is-open');
+    e.stopPropagation();
+  })
 })
+
+document.onkeydown = function(e) {
+  e = e || window.event;
+  let isEsc = false;
+  isEsc = 'key' in e ? (e.key === 'Escape' || e.key === 'Esc') : (e.keyCode === 27);
+  if (isEsc && myNav.classList.contains('is-open')) {
+    myNav.classList.toggle('is-open');
+  }
+};
+
 
 // Footer
 let date = new Date();
