@@ -35,14 +35,9 @@
   }
 
   h1 {
-    margin: 0;
-    margin-left: 10px;
+    margin: 0 0 0 10px;
     font-weight: $font-weight-semi;
     color: var-color(--dark);
-  }
-
-  .mobile-menu {
-    display: none;
   }
 
   .menu {
@@ -122,10 +117,6 @@
         top: 50%;
         transform: translate(-2px, -50%) rotate(-45deg);
       }
-    }
-
-    .mobile-menu {
-      display: block;
     }
 
     .overlay {

@@ -98,7 +98,11 @@ document.onkeydown = function(e) {
 
 
 // Footer
-let date = new Date();
-let year = date.getFullYear();
-let elmCopy = document.getElementById('year');
-elmCopy.innerHTML = year === 2021 ? year : `2021 - ${year}`;
+const footerInit = () => {
+  let date = new Date();
+  let year = date.getFullYear();
+  let elmCopy = document.getElementById('year');
+  elmCopy.innerHTML = year === 2021 ? year : `2021 - ${year}`;
+}
+
+footerInit();
