@@ -1,3 +1,4 @@
+// Adaptive from https://codepen.io/hi-im-si/pen/DHoup
 const Typewrite = {
   init({ typewrite }) {
     const text = typewrite.getAttribute('data-text')
