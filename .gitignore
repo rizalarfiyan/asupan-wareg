@@ -23,3 +23,6 @@ pids
 # zip, rar files
 *.zip
 *.rar
+
+# backup submissions
+/submissions
