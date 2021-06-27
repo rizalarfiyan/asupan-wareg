@@ -71,7 +71,7 @@ dataPost.forEach((post) => {
     <a href="#">
       <h2 class="h4">${name}</h2>
     </a>
-    <p>${limiter(120, description)}</p>
+    <p>${limiter(90, description)}</p>
   </div>`
   elemContent.append(node);
 });

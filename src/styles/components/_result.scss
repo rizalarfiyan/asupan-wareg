@@ -1,3 +1,6 @@
+$rating-size: 42px;
+$rating-position: 20px;
+
 .result {
   padding: 90px 0 60px;
 
@@ -46,11 +49,11 @@
   .rating {
     position: absolute;
     z-index: 1;
-    right: 16px;
-    top: 16px;
+    right: $rating-position;
+    top: $rating-position;
     background: var-color(--orange);
-    width: 32px;
-    height: 32px;
+    width: $rating-size;
+    height: $rating-size;
     color: var-color(--white);
     display: flex;
     justify-content: center;
@@ -58,6 +61,7 @@
 
     > span {
       font-weight: $font-weight-semi;
+      font-size: $font-size-lg;
       position: absolute;
       z-index: 1;
       margin: auto;
@@ -67,8 +71,8 @@
     &::after {
       content: '';
       position: absolute;
-      width: 32px;
-      height: 32px;
+      width: $rating-size;
+      height: $rating-size;
       background: var-color(--orange);
     }
 
@@ -85,10 +89,10 @@
     position: absolute;
     left: 10px;
     bottom: 10px;
-    padding: 6px 10px;
+    padding: 13px 18px;
     border-radius: 4px;
     background: var-color(--white);
-    font-size: $font-size-base;
+    font-size: $font-size-base * 1.15;
     font-weight: $font-weight-semi;
 
     &::before {
@@ -101,16 +105,23 @@
 
   .content {
     padding: 14px 20px;
-  }
 
+    > a {
+      display: block;
+      padding: 8px 0;
+    }
+  }
+  
   h2 {
+    @include truncate(76px, 2);
     font-weight: $font-weight-semi;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
   }
-
+  
   p {
+    @include truncate(80px, 3);
     font-weight: $font-weight-normal;
-    line-height: 1.15;
+    line-height: 1.25;
     margin-bottom: 7px;
     color: var-color(--semi-dark, .8);
   }
