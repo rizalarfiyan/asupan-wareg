@@ -1,65 +1,68 @@
-import 'regenerator-runtime';
-import '../styles/main.scss';
-import { restaurants as dataPost} from '../DATA.json';
+/* eslint-disable no-param-reassign */
+import 'regenerator-runtime'
+import '../styles/main.scss'
+import { restaurants as dataPost } from '../DATA.json'
 
 // Adaptive from https://codepen.io/hi-im-si/pen/DHoup
-let typewrite = function(el, text, time) {
-  this.text = text;
-  this.el = el;
-  this.loop = 0;
-  this.time = parseInt(time, 10) || 2000;
-  this.txt = '';
-  this.tick();
-  this.isDelete = false;
-};
+const Typewrite = function (el, text, time) {
+  this.text = text
+  this.el = el
+  this.loop = 0
+  this.time = parseInt(time, 10) || 2000
+  this.txt = ''
+  this.tick()
+  this.isDelete = false
+}
 
-typewrite.prototype.tick = function() {
-  let i = this.loop % this.text.length;
-  let t = this.text[i];
+Typewrite.prototype.tick = function () {
+  const i = this.loop % this.text.length
+  const t = this.text[i]
 
-  this.txt = this.isDelete ? t.substring(0, this.txt.length - 1) : t.substring(0, this.txt.length + 1)
-  this.el.innerHTML = `<span class="wrap">${this.txt}</span>`;
+  this.txt = this.isDelete
+    ? t.substring(0, this.txt.length - 1)
+    : t.substring(0, this.txt.length + 1)
+  this.el.innerHTML = `<span class="wrap">${this.txt}</span>`
 
-  let that = this;
-  let delta = 200 - Math.random() * 100;
+  const that = this
+  let delta = 200 - Math.random() * 100
   if (this.isDelete) delta /= 2
 
   if (!this.isDelete && this.txt === t) {
-    delta = this.time;
-    this.isDelete = true;
+    delta = this.time
+    this.isDelete = true
   } else if (this.isDelete && this.txt === '') {
-    this.isDelete = false;
-    this.loop++;
-    delta = 500;
+    this.isDelete = false
+    this.loop += 1
+    delta = 500
   }
 
-  setTimeout(function() {
-    that.tick();
-  }, delta);
+  setTimeout(() => {
+    that.tick()
+  }, delta)
 }
 
-window.onload = function() {
-  let typewrites = document.getElementsByClassName('typewrite');
-  for (let i=0; i < typewrites.length; i++) {
-    let text = typewrites[i].getAttribute('data-text');
-    let time = typewrites[i].getAttribute('data-time');
+window.onload = function () {
+  const typewrites = document.getElementsByClassName('typewrite')
+  for (let i = 0; i < typewrites.length; i += 1) {
+    const text = typewrites[i].getAttribute('data-text')
+    const time = typewrites[i].getAttribute('data-time')
     if (text) {
-      new typewrite(typewrites[i], JSON.parse(text), time);
+      const typewrite = new Typewrite(typewrites[i], JSON.parse(text), time)
+      typewrite()
     }
   }
-};
-
-// Helpers
-const limiter = (long, text) => {
-  return !long || text.length <= long ? text : `${text.slice(0, long)} ...`
 }
 
+// Helpers
+const limiter = (long, text) =>
+  !long || text.length <= long ? text : `${text.slice(0, long)} ...`
+
 // Dom Manipulation JSON
-let elemContent = document.getElementById('content');
+const elemContent = document.getElementById('content')
 dataPost.forEach((post) => {
-  let { name, description, pictureId, city, rating } = post;
-  let node = document.createElement('div');
-  node.className = 'card';
+  const { name, description, pictureId, city, rating } = post
+  const node = document.createElement('div')
+  node.className = 'card'
   node.innerHTML = `<div class="image">
     <a href="#" class="rating">
       <span>${rating}</span>
@@ -73,36 +76,37 @@ dataPost.forEach((post) => {
     </a>
     <p>${limiter(90, description)}</p>
   </div>`
-  elemContent.append(node);
-});
+  elemContent.append(node)
+})
 
 // Navigation Drawer
-let myNav = document.querySelector('#navigation');
-let clickNav = myNav.querySelectorAll('button.hamburger, .overlay');
+const myNav = document.querySelector('#navigation')
+const clickNav = myNav.querySelectorAll('button.hamburger, .overlay')
 
-clickNav.forEach(item => {
-  item.addEventListener('click', e => {
-    myNav.classList.toggle('is-open');
-    e.stopPropagation();
+clickNav.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    myNav.classList.toggle('is-open')
+    e.stopPropagation()
   })
 })
 
-document.onkeydown = function(e) {
-  e = e || window.event;
-  let isEsc = false;
-  isEsc = 'key' in e ? (e.key === 'Escape' || e.key === 'Esc') : (e.keyCode === 27);
+document.onkeydown = function (e) {
+  const event = e || window.event
+  const isEsc =
+    'key' in event
+      ? event.key === 'Escape' || event.key === 'Esc'
+      : event.keyCode === 27
   if (isEsc && myNav.classList.contains('is-open')) {
-    myNav.classList.toggle('is-open');
+    myNav.classList.toggle('is-open')
   }
-};
-
+}
 
 // Footer
 const footerInit = () => {
-  let date = new Date();
-  let year = date.getFullYear();
-  let elmCopy = document.getElementById('year');
-  elmCopy.innerHTML = year === 2021 ? year : `2021 - ${year}`;
+  const date = new Date()
+  const year = date.getFullYear()
+  const elmCopy = document.getElementById('year')
+  elmCopy.innerHTML = year === 2021 ? year : `2021 - ${year}`
 }
 
-footerInit();
+footerInit()
