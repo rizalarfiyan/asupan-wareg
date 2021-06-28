@@ -67,24 +67,27 @@ const reviewsContainer = (reviews) => `
       <h2 class="h3">Ulasan semua orang</h2>
       <p>Terdapat ${reviews.length} ulasan</p>
     </div>
-    <div class="reviews">
-      ${reviews.map((elem) => reviewsElement(elem)).join(' ')}
+    <div class="reviews" id="reviewData">
+      ${reviews
+        .reverse()
+        .map((elem) => reviewsElement(elem))
+        .join(' ')}
     </div>
   </div>`
 
-const reviewsForms = () => `
+const reviewsForms = (restaurant) => `
   <div class="review-form">
     <div class="title">
       <h2 class="h3">Bagaimana menurut anda?</h2>
     </div>
-    <form action="">
+    <form id="reviewForm" data-id="${restaurant.id}">
       <div class="form-group">
           <label for="review-name">Name</label><br>
           <input id="review-name" type="text" name="name" title="Masukkan nama anda" placeholder="Nama anda" required="">
       </div>
       <div class="form-group">
           <label for="review-content">Review</label><br>
-          <textarea id="review-content" name="text-review" placeholder="Masukkan review anda di sini" title="Masukkan review anda" required=""></textarea>
+          <textarea id="review-content" name="review" placeholder="Masukkan review anda di sini" title="Masukkan review anda" required=""></textarea>
       </div>
       <button type="submit">
         <i class="fas fa-paper-plane"></i>
@@ -113,9 +116,9 @@ const createDetailPage = (restaurant) => `
       ${menuRestaurant(restaurant.menus)}
       <div class="review-wrap">
         ${reviewsContainer(restaurant.customerReviews)}
-        ${reviewsForms()}
+        ${reviewsForms(restaurant)}
       </div>
     </div>
   </div>`
 
-export default createDetailPage
+export { createDetailPage, reviewsElement }
