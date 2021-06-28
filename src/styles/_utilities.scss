@@ -1,3 +1,10 @@
+$rating-size: 42px;
+$rating-position: 20px;
+$rating-font: $font-size-lg;
+$rating-large-size: 52px;
+$rating-large-position: 30px;
+$rating-large-font: $font-size-base * 1.5;
+
 img.cover {
   width: 100%;
   height: 100%;
@@ -11,4 +18,60 @@ svg {
   stroke-miterlimit: 10;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.rating {
+  position: absolute;
+  z-index: 1;
+  right: $rating-position;
+  top: $rating-position;
+  background: var-color(--orange);
+  width: $rating-size;
+  height: $rating-size;
+  color: var-color(--white)!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.large {
+    right: $rating-large-position;
+    top: $rating-large-position;
+    width: $rating-large-size;
+    height: $rating-large-size;
+
+    > span {
+      font-size: $rating-large-font;
+    }
+
+    &::before, 
+    &::after {
+      width: $rating-large-size;
+      height: $rating-large-size;
+    }
+  }
+
+  > span {
+    font-weight: $font-weight-semi;
+    font-size: $font-size-lg;
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+  }
+  
+  &::before, 
+  &::after {
+    content: '';
+    position: absolute;
+    width: $rating-size;
+    height: $rating-size;
+    background: var-color(--orange);
+  }
+
+  &::before {
+    transform: rotate(30deg);
+  }
+  
+  &::after {
+    transform: rotate(-30deg);
+  }
 }

@@ -9,7 +9,8 @@ class restaurantSource {
 
   static async getDetail(id) {
     const response = await fetch(apiEndpoint.detail(id))
-    return response.json()
+    const responseJson = await response.json()
+    return responseJson.restaurant
   }
 }
 
