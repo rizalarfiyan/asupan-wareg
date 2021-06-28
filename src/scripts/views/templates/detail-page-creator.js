@@ -98,6 +98,16 @@ const reviewsForms = (restaurant) => `
     </form>
   </div>`
 
+const createLikeButtonTemplate = () => `
+  <button aria-label="suka restoran ini" id="likeButton" class="like">
+     <i class="far fa-heart" aria-hidden="true"></i>
+  </button>`
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="tidak suka restoran ini" id="likeButton" class="like">
+    <i class="fas fa-heart" aria-hidden="true"></i>
+  </button>`
+
 const createDetailPage = (restaurant) => `
   <hr />
   <div class="image-post">
@@ -106,8 +116,13 @@ const createDetailPage = (restaurant) => `
         ? config.base_image_url + restaurant.pictureId
         : 'https://picsum.photos/id/666/800/450?grayscale'
     }" alt="${restaurant.name}">
-    <div class="rating large">
+    <a href="#" class="rating large">
       <span>${restaurant.rating}</span>
+    </a>
+    <div id="likeButtonContainer">
+      <button aria-label="like this movie" id="likeButton" class="like">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
   <div class="content-wrap">
@@ -121,4 +136,4 @@ const createDetailPage = (restaurant) => `
     </div>
   </div>`
 
-export { createDetailPage, reviewsElement }
+export { createDetailPage, reviewsElement, createLikeButtonTemplate, createLikedButtonTemplate }

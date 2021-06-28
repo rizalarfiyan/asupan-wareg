@@ -20,6 +20,23 @@ svg {
   stroke-linejoin: round;
 }
 
+.result-text {
+  text-align: center;
+  margin: 30px auto 40px;
+  max-width: 680px;
+
+  &.result-error {
+    max-width: 340px;
+    margin: 90px ​auto 60px;
+  }
+
+  i {
+    font-size: 80px;
+    margin-bottom: 20px;
+    color: var-color(--orange)
+  }
+}
+
 .rating {
   position: absolute;
   z-index: 1;
