@@ -24,6 +24,10 @@ $rating-position: 20px;
     img {
       transform: scale(1.1);
     }
+
+    .location {
+      left: 0;
+    }
   }
 
   a {
@@ -87,19 +91,30 @@ $rating-position: 20px;
 
   .location {
     position: absolute;
-    left: 10px;
-    bottom: 10px;
+    left: -80%;
+    bottom: 12px;
     padding: 13px 18px;
-    border-radius: 4px;
     background: var-color(--white);
     font-size: $font-size-base * 1.15;
     font-weight: $font-weight-semi;
+    transition: left .3s ease-in-out;
 
     &::before {
       content: '\f041';
       font-family: 'FontAwesome';
       display: inline-block;
       margin-right: 6px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      top: 0;
+      right: -18px;
+      border-width: 22.5px 18px;
+      border-color: var-color(--white) transparent var-color(--white) var-color(--white);
+      z-index: 1;
     }
   }
 
