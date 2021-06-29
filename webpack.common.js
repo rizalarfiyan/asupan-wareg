@@ -1,6 +1,8 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const path = require('path')
+const nodeSASS = require('node-sass')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -22,7 +24,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('node-sass'),
+              implementation: nodeSASS,
             },
           },
         ],
@@ -42,5 +44,32 @@ module.exports = {
         },
       ],
     }),
+    new WebpackPwaManifest({
+      name: 'Asupan Wareg',
+      short_name: 'AW',
+      description:
+        'Mudahkan anda mencari sesuatu yang membuatmu menjadi kenyang!',
+      background_color: '#F35B46',
+      crossorigin: 'use-credentials',
+      ios: {
+        'apple-mobile-web-app-title': 'Asupan Wareg',
+        'apple-mobile-web-app-status-bar-style': 'black',
+      },
+      icons: [
+        {
+          src: path.resolve('src/public/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+        },
+        {
+          src: path.resolve('src/public/icon.png'),
+          size: '512x512',
+        },
+        {
+          src: path.resolve('src/public/maskable-icon.png'),
+          size: '512x512',
+          purpose: 'maskable',
+        },
+      ],
+    }),
   ],
-};
+}

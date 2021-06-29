@@ -10,6 +10,12 @@
     "sourceType": "module"
   },
   "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/webpack.*.js"]
+      }
+    ],
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
     "no-console": "off",
@@ -18,9 +24,6 @@
     "object-shorthand": "off",
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",
-    "camelcase": ["error", {
-      "ignoreDestructuring": "true"
-      }
-    ]
+    "camelcase": "off"
   }
 }
