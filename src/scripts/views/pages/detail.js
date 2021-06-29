@@ -7,11 +7,13 @@ import {
   createDetailPage,
   reviewsElement,
 } from '../templates/detail-page-creator'
+import { errorText } from '../templates/error-creator'
 
 const Detail = {
   async render() {
     return `
       <section class="detail-page">
+        <div id="statusDetail"></div>
         <div class="container" id="detailPage">
         </div>
       </section>
@@ -21,6 +23,13 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner()
     const restaurant = await restaurantSource.getDetail(url.id)
+    if (!restaurant) {
+      const statusContainer = document.querySelector('#statusDetail')
+      statusContainer.innerHTML = errorText(
+        'Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!'
+      )
+      return
+    }
     const restaurantsContainer = document.querySelector('#detailPage')
     restaurantsContainer.innerHTML = createDetailPage(restaurant)
     this._likeButtonInit(restaurant)
@@ -50,6 +59,11 @@ const Detail = {
       const sendStatus = await restaurantSource.sendReview(
         Object.assign(formData, { id: idRestaurant })
       )
+      if (!sendStatus) {
+        // eslint-disable-next-line no-alert
+        alert('Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!')
+        return
+      }
       await this._loadNewReview(sendStatus.customerReviews)
       formElement.reset()
     })

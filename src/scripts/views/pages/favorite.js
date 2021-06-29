@@ -7,7 +7,6 @@ const Favorite = {
     return `
       <section class="result">
         <div class="container">
-          <hr>
           <div id="statusFavorite"></div>
           <div class="wrap-card" id="restaurantList"></div>
         </div>
