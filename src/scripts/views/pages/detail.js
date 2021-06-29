@@ -38,7 +38,7 @@ const Detail = {
         city: restaurant.city,
         description: limitText(config.limit_card, restaurant.description),
       },
-    });
+    })
   },
 
   _submitReview() {

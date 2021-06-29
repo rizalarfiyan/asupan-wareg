@@ -136,4 +136,9 @@ const createDetailPage = (restaurant) => `
     </div>
   </div>`
 
-export { createDetailPage, reviewsElement, createLikeButtonTemplate, createLikedButtonTemplate }
+export {
+  createDetailPage,
+  reviewsElement,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+}
