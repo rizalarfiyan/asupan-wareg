@@ -7,7 +7,7 @@ const config = {
   db_name: 'db-asupan-wareg',
   db_version: 1,
   db_key: 'restoran',
-  cache_name: new Date().toISOString(),
+  cache_name: 'asupan_wareg',
 }
 
 export default config

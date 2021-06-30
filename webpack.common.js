@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 const nodeSASS = require('node-sass')
 
@@ -75,5 +76,6 @@ module.exports = {
         },
       ],
     }),
+    new CleanWebpackPlugin(),
   ],
 }

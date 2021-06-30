@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 class Shine extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' })
