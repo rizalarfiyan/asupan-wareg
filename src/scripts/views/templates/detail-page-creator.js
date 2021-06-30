@@ -136,8 +136,102 @@ const createDetailPage = (restaurant) => `
     </div>
   </div>`
 
+const reviewsLoading = () => `
+  <div class="review">
+    <loading-shine height="80px" width="80px"></loading-shine>
+    <div class="data-review">
+      <div class="top">
+        <loading-shine height="1" width="120px"></loading-shine>
+        <loading-shine height="14px" width="80px"></loading-shine>
+      </div>
+      <loading-shine height="10px" width="90%" mb="4px"></loading-shine>
+      <loading-shine height="10px" width="60%" mb="4px"></loading-shine>
+      <loading-shine height="10px" width="80%" mb="4px"></loading-shine>
+      <loading-shine height="10px" width="50%" mb="4px"></loading-shine>
+    </div>
+  </div>`
+
+const detailLoading = () => `
+  <hr />
+  <div class="image-post" style="height:320px">
+    <loading-shine full height="320px"></loading-shine>
+  </div>
+  <div class="content-wrap">
+    <div class="content-description">
+      <loading-shine height="3" width="50%"></loading-shine>
+      <div class="content-data">
+        <div class="categories">
+          <loading-shine height="1" width="80px"></loading-shine>
+        </div>
+        <div class="location">
+          <loading-shine height="1" width="160px"></loading-shine>
+        </div>
+      </div>
+      <p class="description">
+        <loading-shine height="1" width="90%" mb="4px"></loading-shine>
+        <loading-shine height="1" width="60%" mb="4px"></loading-shine>
+        <loading-shine height="1" width="80%" mb="4px"></loading-shine>
+        <loading-shine height="1" width="50%" mb="4px"></loading-shine>
+      </p>
+    </div>
+    <div class="content-bottom">
+      <div class="list-menu">
+        <div class="title">
+          <loading-shine height="2" width="180px"></loading-shine>
+        </div>
+        <div class="menu-wrap">
+          <div class="menu-group">
+            <div class="menu-item">
+              <loading-shine height="80px" width="90%" mb="6px"></loading-shine>
+              <loading-shine height="1" width="90%"></loading-shine>
+            </div>
+            <div class="menu-item">
+              <loading-shine height="1" width="100%"></loading-shine>
+            </div>
+          </div>
+          <div class="menu-group">
+            <div class="menu-item">
+              <loading-shine height="80px" width="90%" mb="6px"></loading-shine>
+              <loading-shine height="1" width="90%"></loading-shine>
+            </div>
+            <div class="menu-item">
+              <loading-shine height="1" width="100%"></loading-shine>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-wrap">
+        <div class="review-content">
+          <div class="title has-sub">
+            <loading-shine height="2" width="60%" mb="4px"></loading-shine>
+            <loading-shine height="1" width="45%"></loading-shine>
+          </div>
+          <div class="reviews">
+            ${Array.from(Array(config.long_review).keys())
+              .map(() => reviewsLoading())
+              .join(' ')}
+          </div>
+        </div>
+        <div class="review-form">
+          <div class="title">
+            <loading-shine height="2" width="60%"></loading-shine>
+            </div>
+            <form id="reviewForm">
+            <loading-shine height="1" width="80px" mb="4px"></loading-shine>
+            <loading-shine height="2" width="100%" mb="10px"></loading-shine>
+            <loading-shine height="1" width="120px" mb="4px"></loading-shine>
+            <loading-shine height="120px" width="100%" mb="10px"></loading-shine>
+            <loading-shine height="3" width="140px" style="margin:auto"></loading-shine>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>`
+
 export {
   createDetailPage,
+  detailLoading,
+  reviewsLoading,
   reviewsElement,
   createLikeButtonTemplate,
   createLikedButtonTemplate,

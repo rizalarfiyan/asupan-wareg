@@ -26,4 +26,18 @@ const createRestaurantItem = (restaurant) => `
   </div>
   `
 
-export default createRestaurantItem
+const restaurantLoading = () => `
+  <div class="card">
+    <div class="image">
+      <loading-shine full></loading-shine>
+    </div>
+    <div class="content">
+      <loading-shine height="2" width="80%" mb="10px"></loading-shine>
+      <loading-shine height="1" width="90%" mb="4px"></loading-shine>
+      <loading-shine height="1" width="100%" mb="4px"></loading-shine>
+      <loading-shine height="1" width="50%" mb="4px"></loading-shine>
+    </div>
+  </div>
+  `
+
+export { createRestaurantItem, restaurantLoading }

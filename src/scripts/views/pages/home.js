@@ -1,5 +1,9 @@
 import restaurantSource from '../../data/restaurant-source'
-import createRestaurantItem from '../templates/card-creator'
+import config from '../../globals/config'
+import {
+  createRestaurantItem,
+  restaurantLoading,
+} from '../templates/card-creator'
 import { errorText } from '../templates/error-creator'
 
 const Home = {
@@ -15,15 +19,22 @@ const Home = {
   },
 
   async afterRender() {
+    const restaurantsContainer = document.querySelector('#restaurantList')
+    for (let i = 0; i < config.long_list; i += 1) {
+      restaurantsContainer.innerHTML += restaurantLoading()
+    }
+
     const restaurants = await restaurantSource.getList()
     if (!restaurants) {
       const statusContainer = document.querySelector('#statusRestaurant')
       statusContainer.innerHTML = errorText(
         'Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!'
       )
+      restaurantsContainer.innerHTML = ''
       return
     }
-    const restaurantsContainer = document.querySelector('#restaurantList')
+
+    restaurantsContainer.innerHTML = ''
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantItem(restaurant)
     })

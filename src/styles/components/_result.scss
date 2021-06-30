@@ -11,6 +11,7 @@
 
 .card {
   max-width: 340px;
+  width: 100%;
   border-radius: 6px;
   margin: 10px;
   overflow: hidden;
@@ -35,6 +36,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    background-color: var-color(--placeholder);
     padding-bottom: percentage(2/3);
   }
 

@@ -4,8 +4,10 @@ import UrlParser from '../../routes/url-parser'
 import LikeButton from '../../utils/like-button'
 import restaurantSource from '../../data/restaurant-source'
 import {
+  detailLoading,
   createDetailPage,
   reviewsElement,
+  reviewsLoading,
 } from '../templates/detail-page-creator'
 import { errorText } from '../templates/error-creator'
 
@@ -22,15 +24,18 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner()
+    const restaurantsContainer = document.querySelector('#detailPage')
+    restaurantsContainer.innerHTML = detailLoading()
+
     const restaurant = await restaurantSource.getDetail(url.id)
     if (!restaurant) {
       const statusContainer = document.querySelector('#statusDetail')
       statusContainer.innerHTML = errorText(
         'Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!'
       )
+      restaurantsContainer.innerHTML = ''
       return
     }
-    const restaurantsContainer = document.querySelector('#detailPage')
     restaurantsContainer.innerHTML = createDetailPage(restaurant)
     this._likeButtonInit(restaurant)
     this._submitReview()
@@ -52,8 +57,14 @@ const Detail = {
 
   _submitReview() {
     const formElement = document.querySelector('#reviewForm')
+    const reviewsContainer = document.querySelector('#reviewData')
     formElement.addEventListener('submit', async (event) => {
       event.preventDefault()
+
+      reviewsContainer.innerHTML = Array.from(Array(config.long_review).keys())
+        .map(() => reviewsLoading())
+        .join(' ')
+
       const formData = Object.fromEntries(new FormData(formElement).entries())
       const idRestaurant = formElement.getAttribute('data-id')
       const sendStatus = await restaurantSource.sendReview(
@@ -64,17 +75,14 @@ const Detail = {
         alert('Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!')
         return
       }
-      await this._loadNewReview(sendStatus.customerReviews)
+
+      reviewsContainer.innerHTML = sendStatus.customerReviews
+        .reverse()
+        .map((elem) => reviewsElement(elem))
+        .join(' ')
+
       formElement.reset()
     })
-  },
-
-  async _loadNewReview(review) {
-    const reviewsContainer = document.querySelector('#reviewData')
-    reviewsContainer.innerHTML = review
-      .reverse()
-      .map((elem) => reviewsElement(elem))
-      .join(' ')
   },
 }
 

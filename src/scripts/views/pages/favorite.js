@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb'
-import createRestaurantItem from '../templates/card-creator'
+import { createRestaurantItem } from '../templates/card-creator'
 import { resultText, errorText } from '../templates/error-creator'
 
 const Favorite = {

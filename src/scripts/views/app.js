@@ -1,3 +1,4 @@
+import CustomElements from '../utils/custom-elements'
 import MenuDrawer from '../utils/menu-drawer'
 import Typewrite from '../utils/typewrite'
 import Footer from '../utils/footer'
@@ -16,6 +17,8 @@ class App {
   }
 
   _initialAppShell() {
+    CustomElements.init()
+
     MenuDrawer.init({
       button: this._button,
       drawer: this._drawer,
