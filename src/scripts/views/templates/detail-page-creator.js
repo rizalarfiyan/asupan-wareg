@@ -109,7 +109,6 @@ const createLikedButtonTemplate = () => `
   </button>`
 
 const createDetailPage = (restaurant) => `
-  <hr />
   <div class="image-post">
     <img class="cover" src="${
       restaurant.pictureId

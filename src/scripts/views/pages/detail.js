@@ -28,15 +28,23 @@ const Detail = {
     restaurantsContainer.innerHTML = detailLoading()
 
     const restaurant = await restaurantSource.getDetail(url.id)
+
+    const statusContainer = document.querySelector('#statusDetail')
     if (!restaurant) {
-      const statusContainer = document.querySelector('#statusDetail')
       statusContainer.innerHTML = errorText(
         'Oppss.. Terjadi masalah! Silahkan coba lagi beberapa saat!'
       )
       restaurantsContainer.innerHTML = ''
       return
     }
-    restaurantsContainer.innerHTML = createDetailPage(restaurant)
+
+    if (restaurant.error) {
+      statusContainer.innerHTML = errorText('Oppss.. Tidak ada restoran!')
+      restaurantsContainer.innerHTML = ''
+      return
+    }
+
+    restaurantsContainer.innerHTML = createDetailPage(restaurant.restaurant)
     this._likeButtonInit(restaurant)
     this._submitReview()
   },

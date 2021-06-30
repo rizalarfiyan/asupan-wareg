@@ -36,6 +36,7 @@ section.detail-page {
     padding: 30px 20px;
     margin: auto;
     width: 100%;
+    box-shadow: 0 5px 30px RGBA(var(--semi-dark), 0.14);
 
     p {
       color: var-color(--semi-dark);
