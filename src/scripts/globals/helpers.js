@@ -9,4 +9,6 @@ const getInitial = (text) =>
     .join('')
     .toUpperCase()
 
-export { limitText, getInitial }
+const capitalizeFirst = (text) => text.charAt(0).toUpperCase() + text.slice(1)
+
+export { limitText, getInitial, capitalizeFirst }

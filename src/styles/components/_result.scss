@@ -22,10 +22,6 @@
     img {
       transform: scale(1.1);
     }
-
-    .location {
-      left: -80%;
-    }
   }
 
   a {
@@ -57,7 +53,6 @@
     background: var-color(--white);
     font-size: $font-size-base * 1.15;
     font-weight: $font-weight-semi;
-    transition: left .3s ease-in-out;
 
     &::after {
       content: '';

@@ -12,7 +12,7 @@ const createRestaurantItem = (restaurant) => `
           ? config.base_image_url + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
       }" alt="${restaurant.name}">
-      <a href="#" class="location">
+      <a href="/#/city/${restaurant.city.toLowerCase()}" class="location">
         <i class="fas fa-map-marker-alt"></i>
         <span>${restaurant.city}</span>
       </a>
