@@ -45,7 +45,7 @@ const Detail = {
     }
 
     restaurantsContainer.innerHTML = createDetailPage(restaurant.restaurant)
-    this._likeButtonInit(restaurant)
+    this._likeButtonInit(restaurant.restaurant)
     this._submitReview()
   },
 
