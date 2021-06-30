@@ -13,7 +13,9 @@ const descriptionRestaurant = (desc) => `
       </div>
       <div class="location">
         <i class="fas fa-map-marker-alt"></i>
-        <span>${desc.address}, ${desc.city}</span>
+        <span>
+          ${desc.address}, <a href="/#/city/${desc.city}">${desc.city}</a>
+        </span>
       </div>
     </div>
     <p class="description">${desc.description}</p>
@@ -115,7 +117,7 @@ const createDetailPage = (restaurant) => `
         ? config.base_image_url + restaurant.pictureId
         : 'https://picsum.photos/id/666/800/450?grayscale'
     }" alt="${restaurant.name}">
-    <a href="#" class="rating large">
+    <a href="/#/rating/${restaurant.rating}" class="rating large">
       <span>${restaurant.rating}</span>
     </a>
     <div id="likeButtonContainer">

@@ -4,7 +4,7 @@ import { limitText } from '../../globals/helpers'
 const createRestaurantItem = (restaurant) => `
   <div class="card">
     <div class="image">
-      <a href="#" class="rating">
+      <a href="/#/rating/${restaurant.rating}" class="rating">
         <span>${restaurant.rating}</span>
       </a>
       <img class="cover" src="${

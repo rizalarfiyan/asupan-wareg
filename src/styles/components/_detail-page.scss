@@ -58,6 +58,12 @@ section.detail-page {
       margin: 5px;
       line-height: 1.25;
     }
+
+    a {
+      color: var-color(--dark);
+      text-decoration: underline;
+      margin-left: 6px;
+    }
   }
 
   .content-bottom { 
