@@ -10,13 +10,27 @@ const UrlParser = {
     return this._urlSplitter(url)
   },
 
+  // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+  getQuery(name, url = window.location.href) {
+    const search = name.replace(/[\\[\]]/g, '\\$&')
+    const regex = new RegExp(`[?&]${search}(=([^&#]*)|&|#|$)`)
+    const results = regex.exec(url)
+    if (!results) return null
+    if (!results[2]) return ''
+    return results[2]
+  },
+
   _urlSplitter(url) {
     const urlsSplits = url.split('/')
     return {
-      resource: urlsSplits[1] || null,
+      resource: urlsSplits[1] ? this._getResource(urlsSplits[1]) : null,
       id: urlsSplits[2] || null,
       verb: urlsSplits[3] || null,
     }
+  },
+
+  _getResource(urlsSplits) {
+    return urlsSplits.match(/[?\\/]/) ? urlsSplits.split('?')[0] : urlsSplits
   },
 
   _urlCombiner(splitedUrl) {

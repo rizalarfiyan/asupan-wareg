@@ -6,6 +6,7 @@ import swRegister from './utils/sw-register'
 const app = new App({
   content: document.querySelector('#main-content'),
   button: document.querySelectorAll('button.hamburger, .overlay'),
+  searchForm: document.querySelector('#searchForm'),
   drawer: document.querySelector('#navigation'),
   typewrite: document.querySelector('.typewrite'),
   year: document.getElementById('year'),

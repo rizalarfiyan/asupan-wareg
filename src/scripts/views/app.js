@@ -1,14 +1,16 @@
 import CustomElements from '../utils/custom-elements'
 import MenuDrawer from '../utils/menu-drawer'
+import Search from '../utils/search'
 import Typewrite from '../utils/typewrite'
 import Footer from '../utils/footer'
 import UrlParser from '../routes/url-parser'
 import routes from '../routes/routes'
 
 class App {
-  constructor({ content, button, drawer, typewrite, year }) {
+  constructor({ content, button, searchForm, drawer, typewrite, year }) {
     this._content = content
     this._button = button
+    this._searchForm = searchForm
     this._drawer = drawer
     this._typewrite = typewrite
     this._year = year
@@ -22,6 +24,10 @@ class App {
     MenuDrawer.init({
       button: this._button,
       drawer: this._drawer,
+    })
+
+    Search.init({
+      searchForm: this._searchForm,
     })
 
     Typewrite.init({

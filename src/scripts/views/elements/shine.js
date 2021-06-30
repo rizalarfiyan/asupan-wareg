@@ -9,6 +9,7 @@ class Shine extends HTMLElement {
     shine.className = `shine ${this.hasAttribute('full') ? 'full' : ''}`.trim()
 
     const style = document.createElement('style')
+    // Adaptive from https://codepen.io/umng/pen/xMXXRj
     style.textContent = `
     .shine {
       background: rgb(var(--placeholder));

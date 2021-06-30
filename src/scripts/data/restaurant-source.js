@@ -21,6 +21,15 @@ class restaurantSource {
     }
   }
 
+  static async getSearch(search) {
+    try {
+      const response = await fetch(apiEndpoint.search(search))
+      return response.json()
+    } catch (err) {
+      return false
+    }
+  }
+
   static async sendReview(data) {
     try {
       const response = await fetch(apiEndpoint.review, {
