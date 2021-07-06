@@ -1,22 +1,40 @@
 footer {
+  position: relative;
+  z-index: 9;
   padding: 20px 10px;
   text-align: center;
   background: var-color(--white);
   font-weight: $font-weight-medium;
 
-  .container > span {
+  .container > div {
     display: block;
-
+    
     &:not(:last-child) {
       margin-bottom: 6px;
+    }
+
+    &:not(:first-child) {
+      margin-top: -24px;
     }
   }
 
   a {
     text-decoration: underline;
+    padding: 14px 0;
+    display: inline-block;
   }
 
   .heart {
     color: #e31b23;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    .container > div {
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
   }
 }
