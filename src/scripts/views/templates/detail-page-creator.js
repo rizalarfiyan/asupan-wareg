@@ -121,7 +121,7 @@ const createDetailPage = (restaurant) => `
       <span>${restaurant.rating}</span>
     </a>
     <div id="likeButtonContainer">
-      <button aria-label="like this movie" id="likeButton" class="like">
+      <button aria-label="suka restoran ini" id="likeButton" class="like">
         <i class="fas fa-heart" aria-hidden="true"></i>
       </button>
     </div>
