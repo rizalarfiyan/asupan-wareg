@@ -54,11 +54,15 @@ module.exports = {
       entry: path.resolve(__dirname, 'src/scripts/sw.js'),
     }),
     new WebpackPwaManifest({
+      filename: 'manifest.json',
       name: 'Asupan Wareg',
       short_name: 'AW',
       description:
         'Mudahkan anda mencari sesuatu yang membuatmu menjadi kenyang!',
+      theme_color: '#F35B46',
       background_color: '#F35B46',
+      display: 'standalone',
+      start_url: './index.html',
       crossorigin: 'use-credentials',
       ios: {
         'apple-mobile-web-app-title': 'Asupan Wareg',
