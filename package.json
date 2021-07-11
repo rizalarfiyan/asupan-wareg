@@ -7,6 +7,7 @@
     "start": "http-server dist",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "build-image": "node sharp.js",
     "test": "karma start"
   },
   "keywords": [],
@@ -25,6 +26,7 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
     "html-webpack-plugin": "^4.3.0",
+    "http-server": "^0.12.3",
     "image-minimizer-webpack-plugin": "^1.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "jasmine-ajax": "^4.0.0",
@@ -38,6 +40,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.3.2",
     "sass-loader": "^7.1.0",
+    "sharp": "^0.28.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^4.4.2",
