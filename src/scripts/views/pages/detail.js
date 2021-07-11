@@ -10,6 +10,7 @@ import {
   reviewsLoading,
 } from '../templates/detail-page-creator'
 import { errorText } from '../templates/error-creator'
+import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb'
 
 const Detail = {
   async render() {
@@ -52,6 +53,7 @@ const Detail = {
   _likeButtonInit(restaurant) {
     LikeButton.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.id,
         name: restaurant.name,
