@@ -2,6 +2,7 @@ import 'regenerator-runtime'
 import '../styles/main.scss'
 import App from './views/app'
 import swRegister from './utils/sw-register'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 
 const app = new App({
   content: document.querySelector('#main-content'),

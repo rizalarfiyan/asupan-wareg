@@ -112,7 +112,7 @@ const createLikedButtonTemplate = () => `
 
 const createDetailPage = (restaurant) => `
   <div class="image-post">
-    <img class="cover" src="${
+    <img class="cover lazyload" data-src="${
       restaurant.pictureId
         ? config.base_image_url + restaurant.pictureId
         : 'https://picsum.photos/id/666/800/450?grayscale'

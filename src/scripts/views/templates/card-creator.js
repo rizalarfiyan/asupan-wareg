@@ -7,7 +7,7 @@ const createRestaurantItem = (restaurant) => `
       <a href="/#/rating/${restaurant.rating}" class="rating">
         <span>${restaurant.rating}</span>
       </a>
-      <img class="cover" src="${
+      <img class="cover lazyload" data-src="${
         restaurant.pictureId
           ? config.base_image_url + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
