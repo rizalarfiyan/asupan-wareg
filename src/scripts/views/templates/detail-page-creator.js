@@ -91,7 +91,7 @@ const reviewsForms = (restaurant) => `
           <label for="review-content">Review</label><br>
           <textarea id="review-content" name="review" placeholder="Masukkan review anda di sini" title="Masukkan review anda" required=""></textarea>
       </div>
-      <button type="submit">
+      <button type="submit" aria-label="kirim review">
         <i class="fas fa-paper-plane"></i>
         <span>
           Kirim Review
