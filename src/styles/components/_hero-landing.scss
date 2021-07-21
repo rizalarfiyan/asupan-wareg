@@ -1,7 +1,11 @@
 .hero {
-  .wrap-hero {
-    min-height: 100vh;
+  &, .wrap-hero {
+    max-height: 100%;
+    height: 400px;
     width: 100%;
+  }
+
+  .wrap-hero {
     display: flex;
     justify-content: center;
     align-items: center;
