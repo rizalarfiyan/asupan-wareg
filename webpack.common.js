@@ -8,6 +8,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 const nodeSASS = require('node-sass')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -26,6 +28,14 @@ module.exports = {
       automaticNameDelimiter: '~',
       enforceSizeThreshold: 50000,
       cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.s?css$/,
+          chunks: 'all',
+          minChunks: 1,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
@@ -47,6 +57,12 @@ module.exports = {
             loader: 'style-loader',
           },
           {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
+          {
             loader: 'css-loader',
           },
           {
@@ -54,6 +70,14 @@ module.exports = {
             options: {
               implementation: nodeSASS,
             },
+          },
+        ],
+      },
+      {
+        test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
+        use: [
+          {
+            loader: 'file-loader?name=fonts/[name].[ext]',
           },
         ],
       },
@@ -120,6 +144,14 @@ module.exports = {
           ],
         ],
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+      chunkFilename: '[name].css',
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true,
     }),
   ],
 }

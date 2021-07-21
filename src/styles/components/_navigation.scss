@@ -63,12 +63,14 @@
     margin: auto 5px;
     border-radius: 4px;
     transition: background .2s ease;
+    color: var-color(--dark);
+    text-align: center;
 
     &::before {
       content: '';
       display: block;
       position: absolute;
-      bottom: 0;
+      bottom: 1px;
       left: 0;
       height: 2px;
       width: 100%;
