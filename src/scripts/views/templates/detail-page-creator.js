@@ -83,6 +83,7 @@ const reviewsForms = (restaurant) => `
       <h2 class="h3">Bagaimana menurut anda?</h2>
     </div>
     <form id="reviewForm" data-id="${restaurant.id}">
+      <div id="reviewStatus" class="review-status"></div>
       <div class="form-group">
           <label for="review-name">Name</label><br>
           <input id="review-name" type="text" name="name" title="Masukkan nama anda" placeholder="Nama anda" required="">
@@ -91,7 +92,7 @@ const reviewsForms = (restaurant) => `
           <label for="review-content">Review</label><br>
           <textarea id="review-content" name="review" placeholder="Masukkan review anda di sini" title="Masukkan review anda" required=""></textarea>
       </div>
-      <button type="submit" aria-label="kirim review">
+      <button type="submit" id="submitButton" aria-label="kirim review">
         <i class="fas fa-paper-plane"></i>
         <span>
           Kirim Review
@@ -138,7 +139,7 @@ const createDetailPage = (restaurant) => `
   </div>`
 
 const reviewsLoading = () => `
-  <div class="review">
+  <div class="review" id="loadingReview">
     <loading-shine height="80px" width="80px"></loading-shine>
     <div class="data-review">
       <div class="top">
@@ -153,7 +154,6 @@ const reviewsLoading = () => `
   </div>`
 
 const detailLoading = () => `
-  <hr />
   <div class="image-post" style="height:320px">
     <loading-shine full height="320px"></loading-shine>
   </div>

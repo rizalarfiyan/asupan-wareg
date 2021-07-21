@@ -86,12 +86,18 @@ const Detail = {
         return
       }
 
+      const reviewsStatus = document.querySelector('#reviewStatus')
+      reviewsStatus.innerHTML = '<span>Berhasil terkirim!</span>'
+
+      formElement.reset()
       reviewsContainer.innerHTML = sendStatus.customerReviews
         .reverse()
         .map((elem) => reviewsElement(elem))
         .join(' ')
 
-      formElement.reset()
+      setTimeout(() => {
+        reviewsStatus.innerHTML = ''
+      }, 1500)
     })
   },
 }

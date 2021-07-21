@@ -186,6 +186,10 @@ section.detail-page {
   }
 
   .review-form {
+    .review-status {
+      text-align: center;
+    }
+
     form {
       display: flex;
       flex-direction: column;
