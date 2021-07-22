@@ -5,7 +5,7 @@ const resultText = (message) => `
 
 const errorText = (message) => `
   <div class="result-text result-error">
-    <i class="fas fa-exclamation-triangle"></i>
+    <x-icon name="error" width="128" height="128"></x-icon>
     <h2 class="h3 message-data">${message}</h2>
   </div>`
 

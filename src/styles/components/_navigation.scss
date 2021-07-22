@@ -28,7 +28,7 @@
     }
   }
 
-  svg {
+  app-logo svg {
     stroke: var-color(--dark);
     max-height: 40px;
     width: auto;
@@ -50,10 +50,6 @@
 
   .hamburger {
     display: none;
-  }
-
-  i {
-    margin-right: 6px;
   }
 
   a:not(.logo) {
@@ -88,6 +84,10 @@
         transform-origin: left top;
         transform: scale(1, 1);
       }
+    }
+
+    span {
+      font-weight: $font-weight-semi;
     }
   }
 }

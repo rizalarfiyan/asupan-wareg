@@ -12,8 +12,29 @@ img.cover {
   object-fit: cover;
 }
 
-svg {
-  stroke: white;
+.icon-group {
+  display: flex!important;
+  align-items: center;
+
+  x-icon:first-child {
+    margin-right: 8px;
+  }
+  
+  x-icon:last-child {
+    margin-left: 8px;
+  }
+}
+
+x-icon {
+  display: inline-flex;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+app-logo svg {
+  stroke: var-color(--white);
   stroke-width: 2;
   stroke-miterlimit: 10;
   stroke-linecap: round;
@@ -30,10 +51,9 @@ svg {
     margin: 90px ​auto 60px;
   }
 
-  i {
-    font-size: 80px;
-    margin-bottom: 20px;
-    color: var-color(--orange)
+  x-icon {
+    color: var-color(--orange);
+    margin-bottom: 1rem;
   }
 }
 

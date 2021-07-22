@@ -73,14 +73,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
-        use: [
-          {
-            loader: 'file-loader?name=fonts/[name].[ext]',
-          },
-        ],
-      },
     ],
   },
   plugins: [
@@ -106,8 +98,8 @@ module.exports = {
       short_name: 'AW',
       description:
         'Mudahkan anda mencari sesuatu yang membuatmu menjadi kenyang!',
-      theme_color: '#F35B46',
-      background_color: '#F35B46',
+      theme_color: '#DB3839',
+      background_color: '#DB3839',
       display: 'standalone',
       start_url: './index.html',
       crossorigin: 'use-credentials',

@@ -5,14 +5,14 @@ const descriptionRestaurant = (desc) => `
   <div class="content-description">
     <h1 class="h2">${desc.name}</h1>
     <div class="content-data">
-      <div class="categories">
-        <i class="fas fa-utensils"></i>
+      <div class="categories icon-group">
+        <x-icon name="utensil" width="20" height="20"></x-icon>
         <span>
           ${desc.categories.map((category) => category.name).join(', ')}
         </span>
       </div>
-      <div class="location">
-        <i class="fas fa-map-marker-alt"></i>
+      <div class="location icon-group">
+      <x-icon name="map" width="20" height="20"></x-icon>
         <span>
           ${desc.address}, <a href="/#/city/${desc.city}">${desc.city}</a>
         </span>
@@ -31,14 +31,14 @@ const menuRestaurant = (menus) => `
     <div class="menu-wrap">
       <div class="menu-group">
         <div class="menu-item">
-          <i class="fas fa-hamburger"></i>
+          <x-icon name="food" width="48" height="48"></x-icon>
           <h3 class="h4">Makanan</h3>
         </div>
         ${menus.foods.map((menu) => elementMenu(menu)).join(' ')}
       </div>
       <div class="menu-group">
         <div class="menu-item">
-          <i class="fas fa-mug-hot"></i>
+          <x-icon name="drink" width="48" height="48"></x-icon>
           <h3 class="h4">Minuman</h3>
         </div>
         ${menus.drinks.map((menu) => elementMenu(menu)).join(' ')}
@@ -54,8 +54,8 @@ const reviewsElement = (review) => `
     <div class="data-review">
       <div class="top">
         <h4 class="h5">${review.name}</h4>
-        <span>
-          <i class="fas fa-calendar-alt"></i>
+        <span class="icon-group">
+          <x-icon name="calendar" width="20" height="20"></x-icon>
           <span>${review.date}</span>
         </span>
       </div>
@@ -92,23 +92,23 @@ const reviewsForms = (restaurant) => `
           <label for="review-content">Review</label><br>
           <textarea id="review-content" name="review" placeholder="Masukkan review anda di sini" title="Masukkan review anda" required=""></textarea>
       </div>
-      <button type="submit" id="submitButton" aria-label="kirim review">
-        <i class="fas fa-paper-plane"></i>
+      <button type="submit" id="submitButton" class="icon-group" aria-label="kirim review">
         <span>
           Kirim Review
         </span>
+        <x-icon name="message" width="20" height="20"></x-icon>
       </button>
     </form>
   </div>`
 
 const createLikeButtonTemplate = () => `
   <button aria-label="suka restoran ini" id="likeButton" class="like">
-     <i class="far fa-heart" aria-hidden="true"></i>
-  </button>`
+    <x-icon name="heart" width="36" height="36" aria-hidden="true"></x-icon>
+    </button>`
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="tidak suka restoran ini" id="likeButton" class="like">
-    <i class="fas fa-heart" aria-hidden="true"></i>
+    <button aria-label="tidak suka restoran ini" id="likeButton" class="like">
+    <x-icon name="heart-fill" width="36" height="36" aria-hidden="true"></x-icon>
   </button>`
 
 const createDetailPage = (restaurant) => `
@@ -121,11 +121,7 @@ const createDetailPage = (restaurant) => `
     <a href="/#/rating/${restaurant.rating}" class="rating large">
       <span>${restaurant.rating}</span>
     </a>
-    <div id="likeButtonContainer">
-      <button aria-label="suka restoran ini" id="likeButton" class="like">
-        <i class="fas fa-heart" aria-hidden="true"></i>
-      </button>
-    </div>
+    <div id="likeButtonContainer"></div>
   </div>
   <div class="content-wrap">
     ${descriptionRestaurant(restaurant)}

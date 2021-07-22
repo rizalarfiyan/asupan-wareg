@@ -48,10 +48,6 @@ section.detail-page {
     flex-wrap: wrap;
     margin: 12px 0;
 
-    i {
-      margin-right: 6px;
-    }
-    
     > * {
       margin: 5px;
       line-height: 1.25;
@@ -108,10 +104,6 @@ section.detail-page {
 
     h3 {
       margin: 10px 0 0!important;
-    }
-    
-    i {
-      font-size: 40px;
     }
   }
 
@@ -172,10 +164,6 @@ section.detail-page {
         > span {
           font-size: 14px;
         }
-
-        i {
-          margin-right: 6px;
-        }
       }
 
       p {
@@ -226,17 +214,13 @@ section.detail-page {
     button {
       margin: auto;
       border: none;
-      padding: 14px 16px;
+      padding: 14px 20px;
       font-size: $font-size-base;
       font-weight: $font-weight-medium;
       color: var-color(--white);
       background: var-color(--orange);
       border-radius: 4px;
       box-shadow: 0 3px 20px var-color(--orange, 0.35);
-
-      i {
-        margin-right: 6px;
-      }
     }
   }
 
@@ -252,6 +236,7 @@ section.detail-page {
     width: 64px;
     height: 64px;
     cursor: pointer;
+    padding: 14px;
   }
 }
 

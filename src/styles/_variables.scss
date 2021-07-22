@@ -2,7 +2,7 @@
 $white: #fff;
 $black: #000;
 $bg: #F8EFF0;
-$orange: #db3839;
+$orange: #DB3839;
 $semi-green: #9EE59F;
 $green: #49A96C;
 $brown: #554949;
@@ -35,7 +35,6 @@ $body-color: $dark;
 $font-family-sans-serif: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Poppins" "Helvetica Neue", "Arial", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-monospace: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
 $font-family-base: $font-family-sans-serif;
-$default-font-family: 'Poppins';
 
 $font-size-base: 1rem;
 $font-size-lg: $font-size-base * 1.25;
@@ -82,7 +81,6 @@ $headings: (
 );
 
 $headings-margin-bottom: $space / 2;
-$headings-font-family: "Poppins", sans-serif;
 $headings-font-weight: $font-weight-medium;
 $headings-line-height: 1.25;
 $headings-color: var(--dark);

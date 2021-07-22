@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Mudahkan anda mencari sesuatu yang membuatmu menjadi kenyang!" />
     <meta name="keywords" content="asupan wareg, wareg, asupan kenyang, kenyang, asupan tuwuk, tuwuk, dicoding, restoran, katalog restoran" />
-    <meta name="msapplication-TileColor" content="#F35B46" />
-    <meta name="theme-color" content="#F35B46" />
+    <meta name="msapplication-TileColor" content="#DB3839" />
+    <meta name="theme-color" content="#DB3839" />
     <meta name="author" content="Rizal Arfiyan" />
     <link rel="preload" href="https://restaurant-api.dicoding.dev" />
     <link href='./favicon.ico' rel='icon' type='image/x-icon'/>
@@ -67,9 +67,18 @@
           </div>
         </button>
         <ul class="menu">
-          <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
-          <li><a href="/#/favorite"><i class="fas fa-star"></i>Favorite</a></li>
-          <li><a href="https://github.com/rizalarfiyan" target="_blank" rel="noopener noreferrer"><i class="fas fa-user"></i>About</a></li>
+          <li><a class="icon-group" href="/">
+            <x-icon name="home" width="20"  height="20"></x-icon>
+            <span>Home</span>
+          </a></li>
+          <li><a class="icon-group" href="/#/favorite">
+            <x-icon name="star" width="20"  height="20"></x-icon>
+            <span>Favorite</span>
+          </a></li>
+          <li><a class="icon-group" href="https://github.com/rizalarfiyan" target="_blank" rel="noopener noreferrer">
+            <x-icon name="user" width="20"  height="20"></x-icon>
+            <span>About</span>  
+          </a></li>
         </ul>
       </div>
     </div>
@@ -86,7 +95,7 @@
           <input type="text" name="search" id="search-input" placeholder="Cari Sesuatu...">
         </div>
         <button aria-label="cari sesuatu" type="submit">
-          <i class="fas fa-search"></i>
+          <x-icon name="search"></x-icon>
           <span class="desc">Cari</span>
         </button>
       </form>
