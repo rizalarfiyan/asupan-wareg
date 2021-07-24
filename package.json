@@ -9,7 +9,9 @@
     "build": "webpack --config webpack.prod.js",
     "build-image": "node sharp.js",
     "test": "karma start",
-    "e2e": "codeceptjs run --steps"
+    "e2e": "codeceptjs run --steps",
+    "lint": "eslint ./src --ext \".js\"",
+    "lint:fix": "eslint ./src --ext \".js\" --fix"
   },
   "keywords": [],
   "author": "Rizal Arfiyan <rizal.arfiyan.23@gmail.com>",

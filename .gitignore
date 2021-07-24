@@ -26,6 +26,8 @@ pids
 
 # backup submissions
 /submissions
+# testing
+/e2e/outputs
 # designs
 /designs
 

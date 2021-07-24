@@ -32,7 +32,7 @@
   <header class="hero">
     <div class="wrap-hero">
       <picture>
-        <img class="cover lazyload" data-srcset="./images/heros/hero-bg.jpg 480w, ./images/heros/hero-bg.jpg 800w" sizes="(max-width: 600px) 480px, 800px" data-src="./images/heros/hero-bg.jpg" width="200" height="200" data-sizes="auto" alt="Asupan Wareg" />
+        <img class="cover lazyload" data-srcset="./images/heros/hero-bg.small.jpg 480w, ./images/heros/hero-bg.jpg 800w" sizes="(max-width: 600px) 480px, 800px" data-src="./images/heros/hero-bg.jpg" width="200" height="200" data-sizes="auto" alt="Asupan Wareg" />
       </picture>
       <div class="over-img"></div>
       <div class="container">
@@ -92,9 +92,9 @@
       <form id="searchForm">
         <div class="input-group">
           <label for="search-input">Cari Sesuatu</label>
-          <input type="text" name="search" id="search-input" placeholder="Cari Sesuatu...">
+          <input type="text" name="search" id="search-input" placeholder="Cari Sesuatu..." required="">
         </div>
-        <button aria-label="cari sesuatu" type="submit">
+        <button aria-label="cari sesuatu" class="icon-group" type="submit">
           <x-icon name="search"></x-icon>
           <span class="desc">Cari</span>
         </button>
